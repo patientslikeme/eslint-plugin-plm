@@ -1,11 +1,10 @@
 # no-unrestored-sinon-before-expect
 
-Please describe the origin of the rule here.
-
+Catch test pollution from unrestored sinon stubs and mocks. Only supports mocha.
 
 ## Rule Details
 
-This rule aims to stop you from using `sinon.spy` or `sinon.mock` an es6 import
+This rule stops you from using `sinon.spy` or `sinon.mock` an es6 import
 and forgetting to `restore` the original behavior at the end of your test,
 which results in leaving the spy/stub as a global and polluting the rest of the
 test suite.
@@ -29,3 +28,9 @@ it("passes with unstub before expect", function() {
   expect(true).toEqual('cat');
 });
 ```
+
+## Alternatives
+
+[sinon-test](https://github.com/sinonjs/sinon-test) can automatically create a
+sandbox for the test and handle cleanup, at the cost of hiding some of the
+implementation details.

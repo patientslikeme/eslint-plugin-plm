@@ -44,7 +44,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-See `lib/rules/`
+* [no-unstubbed-sinon-before-expect](docs/rules/no-unstubbed-sinon-before-expect.md)
 
 ## Adding a Rule
 
