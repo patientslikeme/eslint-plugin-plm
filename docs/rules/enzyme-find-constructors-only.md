@@ -1,36 +1,30 @@
 # Only use constructors with enzyme .find (enzyme-find-constructors-only)
 
-Please describe the origin of the rule here.
+Enforce the use of a constructor with Enzyme's `.find` because
+it's faster and doesn't rely on `component.displayName`.
 
 
 ## Rule Details
 
-This rule aims to...
-
 Examples of **incorrect** code for this rule:
 
 ```js
-
-// fill me in
-
+const avatar = wrapper.find('Avatar');
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+import Avatar from '../Avatar';
 
-// fill me in
-
+const avatar = wrapper.find(Avatar);
 ```
 
-### Options
+## Usage with connected components
 
-If there are any options, describe them here. Otherwise, delete this section.
+Strings with `'Connect'` are whitelisted for usage with redux connected
+components:
 
-## When Not To Use It
-
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+```js
+const avatar = wrapper.find('Connect(Avatar)');
+```
