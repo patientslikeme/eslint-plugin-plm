@@ -2,15 +2,13 @@
  * @fileoverview Only use constructors with enzyme .find
  * @author evan
  */
-"use strict";
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/enzyme-find-constructors-only"),
-
-  RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/enzyme-find-constructors-only');
+const RuleTester = require('eslint').RuleTester;
 
 
 //------------------------------------------------------------------------------
@@ -19,7 +17,7 @@ var rule = require("../../../lib/rules/enzyme-find-constructors-only"),
 
 const parserOptions = { ecmaVersion: 6 };
 const ruleTester = new RuleTester();
-ruleTester.run("enzyme-find-constructors-only", rule, {
+ruleTester.run('enzyme-find-constructors-only', rule, {
 
   valid: [
     {
@@ -35,7 +33,7 @@ ruleTester.run("enzyme-find-constructors-only", rule, {
       parserOptions,
     },
     {
-      code: "let child = [1, 2].find(isEven)",
+      code: 'let child = [1, 2].find(isEven)',
       parserOptions,
     },
   ],
@@ -45,9 +43,9 @@ ruleTester.run("enzyme-find-constructors-only", rule, {
       code: "const child = wrapper.find('Link');",
       parserOptions,
       errors: [{
-        message: "Please use a constructor with `find`, not a string literal",
-        type: "CallExpression"
-      }]
-    }
-  ]
+        message: 'Please use a constructor with `find`, not a string literal',
+        type: 'CallExpression',
+      }],
+    },
+  ],
 });
