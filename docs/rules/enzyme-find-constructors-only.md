@@ -3,6 +3,9 @@
 Enforce the use of a constructor with Enzyme's `.find` because
 it's faster and doesn't rely on `component.displayName`.
 
+Makes the wild assumption that all react components have an initial capital
+letter.
+
 
 ## Rule Details
 

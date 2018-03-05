@@ -36,6 +36,18 @@ ruleTester.run('enzyme-find-constructors-only', rule, {
       code: 'let child = [1, 2].find(isEven)',
       parserOptions,
     },
+    {
+      code: "const component = wrapper.find('.some-class')",
+      parserOptions,
+    },
+    {
+      code: `const component = wrapper.find('input[type="submit"]');`,
+      parserOptions,
+    },
+    {
+      code: `const component = wrapper.find('h1');`,
+      parserOptions,
+    }
   ],
 
   invalid: [
