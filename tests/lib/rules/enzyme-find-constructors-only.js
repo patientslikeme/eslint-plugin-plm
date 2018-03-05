@@ -43,7 +43,7 @@ ruleTester.run('enzyme-find-constructors-only', rule, {
       code: "const child = wrapper.find('Link');",
       parserOptions,
       errors: [{
-        message: 'Please use a constructor with `find`, not a string literal',
+        message: "Please use a constructor with 'find': 'find(Link)', not a string",
         type: 'CallExpression',
       }],
     },
