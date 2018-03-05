@@ -34,6 +34,10 @@ ruleTester.run("enzyme-find-constructors-only", rule, {
       code: "let child = wrapper.find('Connect(Link)')",
       parserOptions,
     },
+    {
+      code: "let child = [1, 2].find(isEven)",
+      parserOptions,
+    },
   ],
 
   invalid: [
