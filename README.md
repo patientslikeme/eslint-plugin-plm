@@ -45,6 +45,7 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 * [no-unstubbed-sinon-before-expect](docs/rules/no-unstubbed-sinon-before-expect.md)
+* [enzyme-find-constructors-only](docs/rules/enzyme-find-constructors-only.md)
 
 ## Adding a Rule
 
