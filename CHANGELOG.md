@@ -1,3 +1,8 @@
+## v0.1.6
+> 2017-06-23
+
+* Add `enzyme-find-constructors-only` rule
+
 ## v0.1.5
 > 2017-06-23
 
