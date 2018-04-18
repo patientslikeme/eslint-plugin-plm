@@ -23,25 +23,33 @@ ruleTester.run("break-before-expect", rule, {
 
   valid: [
     {
-      code: 'expect(spy).toHaveBeenCalled();',
-      parserOptions,
-    },
-    {
       code: `
-        const link = wrapper.find('Link');
-        link.instance().onClick();
-
-        expect(spy).toHaveBeenCalled();
+        it('does some stuff', () => {
+          expect(spy).toHaveBeenCalled();
+        });
       `,
       parserOptions,
     },
     {
       code: `
-        const link = wrapper.find('Link');
-        link.instance().onClick();
+        it('does some stuff', () => {
+          const link = wrapper.find('Link');
+          link.instance().onClick();
 
-        expect(spy).toHaveBeenCalled();
-        expect(spy).toBeASpy();
+          expect(spy).toHaveBeenCalled();
+        });
+      `,
+      parserOptions,
+    },
+    {
+      code: `
+        it('does some stuff', () => {
+          const link = wrapper.find('Link');
+          link.instance().onClick();
+
+          expect(spy).toHaveBeenCalled();
+          expect(spy).toBeASpy();
+        });
       `,
       parserOptions,
     },
@@ -50,9 +58,11 @@ ruleTester.run("break-before-expect", rule, {
   invalid: [
     {
       code: `
-        const link = wrapper.find('Link');
-        link.instance().onClick();
-        expect(spy).toHaveBeenCalled();
+        it('does some stuff', () => {
+          const link = wrapper.find('Link');
+          link.instance().onClick();
+          expect(spy).toHaveBeenCalled();
+        });
       `,
       parserOptions,
       errors: [{
@@ -62,10 +72,12 @@ ruleTester.run("break-before-expect", rule, {
     },
     {
       code: `
-        const link = wrapper.find('Link');
-        link.instance().onClick();
-        expect(spy).toHaveBeenCalled();
-        expect(spy).toBeASpy();
+        it('does some stuff', () => {
+          const link = wrapper.find('Link');
+          link.instance().onClick();
+          expect(spy).toHaveBeenCalled();
+          expect(spy).toBeASpy();
+        });
       `,
       parserOptions,
       errors: [{
