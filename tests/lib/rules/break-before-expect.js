@@ -23,6 +23,10 @@ ruleTester.run("break-before-expect", rule, {
 
   valid: [
     {
+      code: 'expect(spy).toHaveBeenCalled();',
+      parserOptions,
+    },
+    {
       code: `
         const link = wrapper.find('Link');
         link.instance().onClick();
